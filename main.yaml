@@ -1,0 +1,7 @@
+---
+- hosts: local
+  - ./environment.yaml
+  - ./global_defaults.yaml
+  roles:
+  - { role: kube,
+        tags: kube }
