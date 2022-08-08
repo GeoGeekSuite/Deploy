@@ -1,0 +1,7 @@
+---
+all:
+  hosts:
+    k8s:
+        ansible_host: <host_ip>
+        ansible_user: <host_user>
+        ansible_user_pass: <host_pw>
