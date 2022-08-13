@@ -4,4 +4,7 @@ all:
     ggs:
         ansible_host: <host_ip>
         ansible_user: <host_user>
-        ansible_ssh_pass: <host_pw>
+        ansible_ssh_private_key_file: '~/.ssh/{{ ggs_keyname }}'
+    localhost:
+      vars:
+      ansible_connection: local
