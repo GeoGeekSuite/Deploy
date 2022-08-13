@@ -1,7 +1,9 @@
 ---
-- hosts: local
+- hosts: ggs
+  vars_files:
   - ./environment.yaml
   - ./global_defaults.yaml
-  roles:
-  - { role: kube,
-        tags: kube }
+  tasks:
+  - name: Smoke Test
+    debug:
+      msg: "Hi from {{ ansible_host }}"

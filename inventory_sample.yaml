@@ -1,7 +1,7 @@
 ---
 all:
   hosts:
-    k8s:
+    ggs:
         ansible_host: <host_ip>
         ansible_user: <host_user>
-        ansible_user_pass: <host_pw>
+        ansible_ssh_pass: <host_pw>
