@@ -1,8 +1,11 @@
 k8s_flavour: microk8s
 ggs_keyname: ggs
+# Roles
 roles:
 - name: geogeeksuite.kubernetes
   git: https://github.com/GeoGeekSuite/Kubernets.git
+- name: geogeeksuite.geodatabase
+  git: https://github.com/GeoGeekSuite/Geodatabase.git
 # Kubernetes related
 manifest_folder: ~/geogeek_manifests
 gisnamespace: gis
@@ -12,4 +15,15 @@ storage:
   type: local
   path: '{{ storage_base }}/test'
   size: 1M
-  
+- name: postgres 
+  type: local 
+  path: '{{ storage_base }}/postgres'
+  size: 5Gi
+# PostGIS Related
+geodatabase:
+    dbname: postgres
+    dbadmin: postgres
+    dbpw: '{{ password }}'
+    dbpwe: '{{ password | b64encode }}'
+    container_image: kartoza/postgis
+    container_version: 14-3.3

@@ -1,0 +1,16 @@
+---
+- hosts: ggs
+  vars_files:
+  - ../environment.yaml
+  - ../global_defaults.yaml
+  tasks:
+  - name: Delete Namesapce
+    shell:
+        cmd: 'kubectl delete namespace {{ item }}'
+    with_items: ['{{ gisnamespace }}']
+    ignore_errors: true
+  - name: Delete Volumes
+    shell:
+      cmd: 'kubectl delete pv {{ item.name }}-volume'
+    with_items: '{{ storage }}'
+    ignore_errors: true

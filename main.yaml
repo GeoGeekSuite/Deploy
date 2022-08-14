@@ -1,5 +1,8 @@
 ---
 - hosts: ggs
+  vars_prompt:
+    - name: password
+      prompt: Set an internal password?
   vars_files:
   - ./environment.yaml
   - ./global_defaults.yaml
@@ -10,3 +13,5 @@
   roles:
   - { role: geogeeksuite.kubernetes,
       tags: kube }
+  - { role: geogeeksuite.geodatabase,
+      tags: pg }
