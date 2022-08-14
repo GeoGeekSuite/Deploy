@@ -14,6 +14,3 @@
   - name: Copy ggs id to host 
     shell:
       cmd: 'sshpass -p {{ host_password }} ssh-copy-id -i ~/.ssh/{{ ggs_keyname }}.pub -o StrictHostKeyChecking=no {{ hostvars.ggs.ansible_user }}@{{ hostvars.ggs.ansible_host }}'
-
-# ON HOST:
-# systemctl restart sshd

@@ -1,2 +1,15 @@
 k8s_flavour: microk8s
 ggs_keyname: ggs
+roles:
+- name: geogeeksuite.kubernetes
+  git: https://github.com/GeoGeekSuite/Kubernets.git
+# Kubernetes related
+manifest_folder: ~/geogeek_manifests
+gisnamespace: gis
+storage_base: ~/geogeek_storage
+storage:
+- name: test
+  type: local
+  path: '{{ storage_base }}/test'
+  size: 1M
+  
