@@ -1,8 +1,5 @@
 ---
 - hosts: localhost
-  vars_prompt:
-    - name: password
-      prompt: Set an internal password?
   vars_files:
   - ../environment.yaml
   - ../global_defaults.yaml

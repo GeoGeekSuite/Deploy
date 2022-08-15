@@ -9,7 +9,7 @@ roles:
 # Kubernetes related
 manifest_folder: ~/geogeek_manifests
 gisnamespace: gis
-storage_base: ~/geogeek_storage
+storage_base: '/home/{{ ansible_user }}/geogeek_storage'
 storage:
 - name: test
   type: local
