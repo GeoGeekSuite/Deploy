@@ -10,6 +10,7 @@
   - name: Smoke Test
     debug:
       msg: "Hi from {{ ansible_host }}"
+    tags: ['never','smoketest']
   roles:
   - { role: geogeeksuite.kubernetes,
       tags: kube }
