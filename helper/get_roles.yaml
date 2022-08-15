@@ -17,4 +17,5 @@
     ansible.builtin.git:
       repo: '{{ item.git }}'
       dest: '../roles/{{ item.name }}'
+      force: true
     with_items: '{{ roles }}'

@@ -18,3 +18,5 @@
       tags: pg }
   - { role: geogeeksuite.pgadmin,
       tags: pga }
+  - { role: geogeeksuite.ingress,
+      tags: ingress }

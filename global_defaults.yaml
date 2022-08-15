@@ -8,6 +8,8 @@ roles:
   git: https://github.com/GeoGeekSuite/Geodatabase.git
 - name: geogeeksuite.pgadmin
   git: git@github.com:GeoGeekSuite/PgAdmin.git
+- name: geogeeksuite.ingress
+  git: git@github.com:GeoGeekSuite/Ingress.git
 # PostGIS Related
 geodatabase:
     dbname: postgres
