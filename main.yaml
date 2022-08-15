@@ -15,3 +15,5 @@
       tags: kube }
   - { role: geogeeksuite.geodatabase,
       tags: pg }
+  - { role: geogeeksuite.pgadmin,
+      tags: pga }

@@ -6,19 +6,8 @@ roles:
   git: https://github.com/GeoGeekSuite/Kubernets.git
 - name: geogeeksuite.geodatabase
   git: https://github.com/GeoGeekSuite/Geodatabase.git
-# Kubernetes related
-manifest_folder: ~/geogeek_manifests
-gisnamespace: gis
-storage_base: '/home/{{ ansible_user }}/geogeek_storage'
-storage:
-- name: test
-  type: local
-  path: '{{ storage_base }}/test'
-  size: 1M
-- name: postgres 
-  type: local 
-  path: '{{ storage_base }}/postgres'
-  size: 5Gi
+- name: geogeeksuite.pgadmin
+  git: git@github.com:GeoGeekSuite/PgAdmin.git
 # PostGIS Related
 geodatabase:
     dbname: postgres
@@ -27,3 +16,9 @@ geodatabase:
     dbpwe: '{{ password | b64encode }}'
     container_image: kartoza/postgis
     container_version: 14-3.3
+#PgAdmin related
+pgadmin:
+    container_image: dpage/pgadmin4
+    container_version: '6.12'
+    mail: me@geogeeksuite.com
+    pw: '{{ password | b64encode }}'
