@@ -12,11 +12,17 @@
       msg: "Hi from {{ ansible_host }}"
     tags: ['never','smoketest']
   roles:
+  #- { role: geogeeksuite.nfs,
+  #    tags: nfs }
   - { role: geogeeksuite.kubernetes,
       tags: kube }
   - { role: geogeeksuite.geodatabase,
       tags: pg }
   - { role: geogeeksuite.pgadmin,
       tags: pga }
+  - { role: geogeeksuite.webhoster,
+      tags: webhoster }
   - { role: geogeeksuite.ingress,
       tags: ingress }
+  - { role: geogeeksuite.ubuntu,
+      tags: ubuntu }
