@@ -1,0 +1,13 @@
+---
+- hosts: ggs
+  vars_files:
+  - ../environment.yaml
+  - ../global_defaults.yaml
+  tasks:
+  - name: Copy Notebooks
+    ansible.builtin.copy:
+      src: '{{ storage_base }}/jupyter/samples/'
+      dest: '{{ role_base }}/geogeeksuite.notebooks/files/'
+      remote_src: true
+      
+    

@@ -1,6 +1,11 @@
 k8s_flavour: microk8s
 ggs_keyname: ggs
-# Roles
+
+# ----------------------------------------------------------------------
+#
+#                            Roles
+#
+# ----------------------------------------------------------------------
 roles:
 - name: geogeeksuite.kubernetes
   git: git@github.com:GeoGeekSuite/Kubernets.git
@@ -16,21 +21,51 @@ roles:
   git: git@github.com:GeoGeekSuite/NFS.git
 - name: geogeeksuite.ubuntu
   git: git@github.com:GeoGeekSuite/Ubuntu.git
+- name: geogeeksuite.storage
+  git: git@github.com:GeoGeekSuite/Storage.git
+- name: geogeeksuite.credentials
+  git: git@github.com:GeoGeekSuite/Credentials.git
+- name: geogeeksuite.startpage
+  git: git@github.com:GeoGeekSuite/Startpage.git
+- name: geogeeksuite.notebooks
+  git: git@github.com:GeoGeekSuite/Notebooks.git
+- name: geogeeksuite.jupyter
+  git: git@github.com:GeoGeekSuite/Jupiter.git
+- name: geogeeksuite.gdal
+  git: git@github.com:GeoGeekSuite/Gdal.git
+
 # PostGIS Related
 geodatabase:
     dbname: postgres
     dbadmin: postgres
-    dbpw: '{{ password }}'
-    dbpwe: '{{ password | b64encode }}'
+    dbpw: '{{ password }}' #deprecated
+    dbpwe: '{{ password | b64encode }}' #deprecated
     container_image: kartoza/postgis
     container_version: 14-3.3
 #PgAdmin related
 pgadmin:
     container_image: dpage/pgadmin4
     container_version: '6.12'
-    mail: me@geogeeksuite.com
-    pw: '{{ password | b64encode }}'
-web_content_repo: git@github.com:GeoGeekSuite/Startpage.git
 webhoster:
     image: 'httpd'
     tag: '2.4'
+jupyter:
+    base_image: docker.io/jupyter/scipy-notebook
+    base_image_version: 'notebook-6.4.6'
+    ggs_version: 22.10.29.1
+#Setup
+
+
+microK8s_addons: 'dashboard dns ingress registry'
+
+local_registry:
+  protocol: http
+  url: '{{ public_url }}'
+  port: 32000
+  repository: gss
+
+python:
+  pip_common:
+  - psycopg2-binary
+  - requests
+  - elasticsearch

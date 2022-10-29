@@ -1,0 +1,33 @@
+---
+- hosts: ggs
+  vars_files:
+  - ../environment.yaml
+  - ../global_defaults.yaml
+  tasks:
+  - name: Create roles directory
+    ansible.builtin.file:
+      path: '{{ role_base }}'
+      state: directory
+  - name: Create subdirs
+    ansible.builtin.file:
+      path: '{{ role_base }}/{{ item.name }}'
+      state: directory
+    with_items: '{{ roles }}'
+  - name: Get Kubernetes role from git
+    ansible.builtin.git:
+      repo: '{{ item.git }}'
+      dest: '{{ role_base }}/{{ item.name }}'
+      force: true
+    with_items: '{{ roles }}'
+  - name: Create resource folder
+    ansible.builtin.file:
+      path: '{{ resources }}'
+      state: directory
+  - name: Clone Python Helpers
+    ansible.builtin.git:
+      repo: git@github.com:GeoGeekSuite/PythonHelpers.git
+      dest: '{{ python_helpers }}'
+    
+    
+
+    
