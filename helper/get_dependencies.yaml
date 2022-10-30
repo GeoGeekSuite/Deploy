@@ -23,10 +23,17 @@
     ansible.builtin.file:
       path: '{{ resources }}'
       state: directory
+  - name: Create python dir
+    file:
+      path: '{{ local_python_library }}'
+      owner: '{{ ansible_user }}'
+      group: '{{ ansible_user }}'
+      state: directory
+    become: true
   - name: Clone Python Helpers
     ansible.builtin.git:
       repo: git@github.com:GeoGeekSuite/PythonHelpers.git
-      dest: '{{ python_helpers }}'
+      dest: '{{ local_python_library }}'
     
     
 
