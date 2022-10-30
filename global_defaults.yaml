@@ -33,6 +33,8 @@ roles:
   git: git@github.com:GeoGeekSuite/Jupiter.git
 - name: geogeeksuite.gdal
   git: git@github.com:GeoGeekSuite/Gdal.git
+- name: geogeeksuite.rabbitmq
+  git: git@github.com:GeoGeekSuite/RabbitMQ.git
 
 # PostGIS Related
 geodatabase:
@@ -52,7 +54,14 @@ webhoster:
 jupyter:
     base_image: docker.io/jupyter/scipy-notebook
     base_image_version: 'notebook-6.4.6'
-    ggs_version: 22.10.29.1
+    ggs_version: 22.10.30.1
+gdal:
+    base_image: docker.io/ubuntu
+    base_image_version: '20.04'
+    ggs_version: 22.10.30.1
+rabbitmq:
+    container_image: rabbitmq
+    container_version: '3.11'
 #Setup
 
 

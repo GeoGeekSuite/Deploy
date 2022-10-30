@@ -33,5 +33,10 @@
       tags: notebooks }
   - { role: geogeeksuite.jupyter,
       tags: jupyter }
+  - { role: geogeeksuite.rabbitmq,
+      tags: rabbitmq }
+  - { role: geogeeksuite.gdal,
+      tags: gdal }
+
 
 
