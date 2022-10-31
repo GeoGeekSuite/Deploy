@@ -58,7 +58,7 @@ jupyter:
 gdal:
     base_image: docker.io/ubuntu
     base_image_version: '20.04'
-    ggs_version: 22.10.30.1
+    ggs_version: 22.10.31.3
 rabbitmq:
     container_image: rabbitmq
     container_version: '3.11'
