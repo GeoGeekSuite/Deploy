@@ -2,3 +2,4 @@ environment.yaml
 inventory.yaml
 roles
 __deprecated_roles/
+Deploy.code-workspace
