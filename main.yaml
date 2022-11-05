@@ -37,6 +37,8 @@
       tags: rabbitmq }
   - { role: geogeeksuite.gdal,
       tags: gdal }
+  - { role: geogeeksuite.osm2pgsql,
+      tags: osm2pgsql }
 
 
 
