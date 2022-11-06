@@ -9,8 +9,6 @@
       msg: "Hi from {{ ansible_host }}"
     tags: ['never','smoketest']
   roles:
-  #- { role: geogeeksuite.nfs,
-  #    tags: nfs }
   - { role: geogeeksuite.kubernetes,
       tags: kube }
   - { role: geogeeksuite.credentials,
